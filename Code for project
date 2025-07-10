@@ -1,0 +1,26 @@
+/**
+ * Checking identifier Kotlin for Java Developers*
+ * play.kotlinlang.org
+ */
+fun isValidIdentifier(s:String): Boolean {
+    fun isValidCharacter(ch: Char) = ch == '_' || ch.isLetterOrDigit()||
+    
+    ch in 'a'..'z' || ch in 'A'..'Z'
+    if (s.isEmpty() || s[0].isDigit()) return false
+    
+    for (ch in s) {
+        if(! isValidCharacter(ch))
+        return false
+    }
+    return true
+}
+
+fun main(args:Array<String>) {
+    
+    println(isValidIdentifier("name"))
+    println(isValidIdentifier("_name"))
+    println(isValidIdentifier("_12"))
+    println(isValidIdentifier(""))
+    println(isValidIdentifier("012"))
+    println(isValidIdentifier("no$"))
+}
